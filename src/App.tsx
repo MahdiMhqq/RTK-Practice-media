@@ -1,6 +1,10 @@
+import UsersList from "components/UsersList";
+
 function App() {
   return (
-    <div className="font-bold text-indigo-600">Hi from tailwind react ts</div>
+    <div className="container mx-auto">
+      <UsersList />
+    </div>
   );
 }
 
