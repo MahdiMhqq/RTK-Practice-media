@@ -1,36 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-import Loading from "components/Loading";
 import Error from "components/Error";
 import UserCard from "./UserCard";
 import UsersListHeader from "./UsersListHeader";
 
-import { useAppDispatch, fetchUsers, useAppSelector } from "store";
+import useThunk from "hooks/useThunk";
+
+import { fetchUsers, useAppSelector } from "store";
 import { IUser } from "store/types";
 
 interface IUsersListProps {}
 
 function UsersList({}: IUsersListProps) {
-  //STATES
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any>(null);
-  
+  //RUN THUNK HOOK
+  const { loading, error, runThunk } = useThunk(fetchUsers);
+
   //REDUX
-  const dispatch = useAppDispatch();
   const usersStore = useAppSelector((store) => store.users);
   const { data } = usersStore;
 
   //LIFE CYCLE HOOKS
   useEffect(() => {
-    setLoading(true);
-    dispatch(fetchUsers())
-      .unwrap()
-      .catch((err) => {
-        setError(err);
-        console.error(err);
-      })
-      .finally(() => setLoading(false));
-  }, []);
+    runThunk();
+  }, [runThunk]);
 
   //RENDER Content
   const content = loading ? (
