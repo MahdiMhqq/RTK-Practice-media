@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 import Loading from "components/Loading";
 import Error from "components/Error";
@@ -11,14 +11,25 @@ import { IUser } from "store/types";
 interface IUsersListProps {}
 
 function UsersList({}: IUsersListProps) {
+  //STATES
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
+  
   //REDUX
   const dispatch = useAppDispatch();
   const usersStore = useAppSelector((store) => store.users);
-  const { data, loading, error } = usersStore;
+  const { data } = usersStore;
 
   //LIFE CYCLE HOOKS
   useEffect(() => {
-    dispatch(fetchUsers());
+    setLoading(true);
+    dispatch(fetchUsers())
+      .unwrap()
+      .catch((err) => {
+        setError(err);
+        console.error(err);
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   //RENDER Content
@@ -33,6 +44,7 @@ function UsersList({}: IUsersListProps) {
   ) : (
     <Users data={data} />
   );
+
   return (
     <div className="flex flex-col w-full">
       <UsersListHeader />
