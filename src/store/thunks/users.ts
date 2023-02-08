@@ -15,8 +15,10 @@ const addUser = createAsyncThunk("users/add", async () => {
   return res.data;
 });
 
-const removeUser  =createAsyncThunk("users/remove", async (id) => {
-    const res = await API.delete(`/users/${id}`)
-})
+const removeUser = createAsyncThunk("users/remove", async (id: number) => {
+  await API.delete(`/users/${id}`);
 
-export { fetchUsers, addUser };
+  return id;
+});
+
+export { fetchUsers, addUser, removeUser };

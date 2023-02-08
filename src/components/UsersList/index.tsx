@@ -50,7 +50,7 @@ function Users({ data }: { data: IUser[] }) {
     <>
       <div className="flex flex-col w-full">
         {data.length > 0 ? (
-          <div className="flex flex-col w-full">
+          <div className="flex flex-col w-full gap-y-2">
             {data.map((user) => (
               <UserCard user={user} key={user.id} />
             ))}
