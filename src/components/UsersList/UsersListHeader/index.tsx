@@ -18,8 +18,13 @@ function UsersListHeader({ customClass = "" }: IUsersListHeaderProps) {
     <div className={`flex items-center justify-between ${customClass}`}>
       <h2 className="text-2xl font-bold italic text-emerald-500">Users List</h2>
       <button
-        className="w-[12ch] flex items-center justify-center px-3 py-2 text-center font-bold text-white rounded-md cursor-pointer bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 transition gap-x-2"
-        onClick={runThunk}
+        className={`w-[12ch] flex items-center justify-center px-3 py-2 text-center font-bold text-white rounded-md cursor-pointer bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 transition gap-x-2 ${
+          loading ? "!bg-gray-600 cursor-not-allowed" : ""
+        }`}
+        onClick={() => {
+          if (!loading) runThunk();
+        }}
+        disabled={loading}
       >
         {loading ? (
           <CircleSpinner />

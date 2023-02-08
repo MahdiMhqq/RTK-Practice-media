@@ -4,7 +4,7 @@ import { useAppDispatch } from "store";
 
 import type { AsyncThunk } from "@reduxjs/toolkit";
 
-function useThunk(thunkAction: AsyncThunk<any, void, any>) {
+function useThunk(thunkAction: AsyncThunk<any, any, any>) {
   //STATES
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<any>(null);
@@ -13,9 +13,9 @@ function useThunk(thunkAction: AsyncThunk<any, void, any>) {
   const dispatch = useAppDispatch();
 
   //LOGIC
-  const runThunk = useCallback(() => {
+  const runThunk = useCallback((arg?: any) => {
     setLoading(true);
-    dispatch(thunkAction())
+    dispatch(thunkAction(arg))
       .unwrap()
       .catch((err) => {
         console.error(err);
