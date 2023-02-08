@@ -6,9 +6,7 @@ interface ILoadingProps {
 
 function Loading({ customClass = "" }: ILoadingProps) {
   return (
-    <p
-      className={`text-center font-bold text-emerald-500 ${customClass}`}
-    >
+    <p className={`text-center font-bold text-emerald-500 ${customClass}`}>
       Loading...
     </p>
   );

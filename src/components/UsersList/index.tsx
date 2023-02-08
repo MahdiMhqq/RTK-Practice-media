@@ -23,7 +23,11 @@ function UsersList({}: IUsersListProps) {
 
   //RENDER Content
   const content = loading ? (
-    <Loading customClass="mt-16" />
+    <div className="flex flex-col w-full">
+      {[...new Array(10)].map((_, index) => (
+        <UserCard user={null} loading={true} key={index} />
+      ))}
+    </div>
   ) : error ? (
     <Error customClass="mt-16" error={error} />
   ) : (
