@@ -8,3 +8,9 @@ export interface IUsersStore {
   error: any;
   loading: boolean;
 }
+
+export interface IAlbum {
+  title: string;
+  userId: string;
+  id: string;
+}
