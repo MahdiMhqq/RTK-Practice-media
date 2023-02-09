@@ -17,10 +17,11 @@ function UsersListHeader({ customClass = "" }: IUsersListHeaderProps) {
   return (
     <>
       <div className={`flex items-center justify-between ${customClass}`}>
-        <h2 className="text-2xl font-bold italic text-emerald-500">
+        <h2 className="text-2xl font-bold italic text-emerald-500 select-none">
           Users List
         </h2>
         <Button
+          className="w-[12ch]"
           onClick={() => {
             if (!loading) runThunk();
           }}
