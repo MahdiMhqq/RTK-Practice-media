@@ -34,18 +34,18 @@ function UserCard({ album, loading = false }: IUserCardProps) {
       >
         <span
           className={`flex items-center justify-center h-6 w-6 ${
-            deleteLoading ? "cursor-not-allowed" : "cursor-pointer"
-          }`}
+            // deleteLoading ? "cursor-not-allowed" : "cursor-pointer"
+          ""}`}
           onClick={(e) => {
             e.stopPropagation();
-            !deleteLoading && handleDeleteUser();
+            // !deleteLoading && handleDeleteUser();
           }}
         >
-          {deleteLoading ? (
+          {/* {deleteLoading ? (
             <CircleSpinner innerSpinnerClass="border-t-red-500" />
           ) : (
             <BsXCircleFill className="h-5 w-5 fill-red-500 hover:fill-red-700 tranisiton" />
-          )}
+          )} */}
         </span>
         <span className="text-zinc-600 font-bold select-none">
           {album?.title ?? " "}
@@ -56,7 +56,7 @@ function UserCard({ album, loading = false }: IUserCardProps) {
           }`}
         />
       </div>
-      {album && <AlbumExpandable expanded={expanded} album={album} />}
+      {/* {album && <AlbumExpandable expanded={expanded} album={album} />} */}
     </div>
   );
 }

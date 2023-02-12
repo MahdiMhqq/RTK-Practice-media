@@ -1,7 +1,7 @@
 import React from "react";
 
 import Error from "components/Error";
-import AlbumsListHeader from "../AlbumsListHeader";
+import AlbumCard from "./AlbumCard";
 
 import { useGetAlbumsQuery } from "store";
 import { IAlbum, IUser } from "store/types";
@@ -19,18 +19,17 @@ function AlbumsList({ user, customClass = "" }: IAlbumsListProps) {
   const content = isLoading ? (
     <div className="flex flex-col w-full">
       {[...new Array(10)].map((_, index) => (
-        <AlbumCard user={null} loading={true} key={index} />
+        <AlbumCard album={null} loading={true} key={index} />
       ))}
     </div>
   ) : error ? (
-    <Error customClass="mt-6" error={error} />
+    <Error customClass="my-6" error={error} />
   ) : (
     <Albums data={data} />
   );
 
   return (
     <div className="flex flex-col w-full">
-      <AlbumsListHeader user={user} />
       {content}
     </div>
   );
@@ -44,12 +43,12 @@ function Albums({ data }: { data: IAlbum[] }) {
       <div className="flex flex-col w-full">
         {data.length > 0 ? (
           <div className="flex flex-col w-full gap-y-2">
-            {data.map((user) => (
-              <AlbumCard user={user} key={user.id} />
+            {data.map((album) => (
+              <AlbumCard album={album} key={album.id} />
             ))}
           </div>
         ) : (
-          <p className="mt-6 text-center font-bold text-gray-600">
+          <p className="my-6 text-center font-bold text-gray-600">
             There is no albums here yet!
           </p>
         )}

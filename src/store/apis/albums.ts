@@ -1,15 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { url } from "inspector";
 import { IAlbum, IUser } from "store/types";
+import { faker } from "@faker-js/faker";
 
 const albumsApiSlice = createApi({
   reducerPath: "albums",
+  tagTypes: ["Album"],
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3500",
   }),
   endpoints(builder) {
     return {
       getAlbums: builder.query({
+        providesTags: (result, error, user) => [{ type: "Album", id: user.id }],
         query: (user: IUser) => ({
           url: "/albums",
           params: {
@@ -25,12 +28,15 @@ const albumsApiSlice = createApi({
         }),
       }),
       addAlbum: builder.mutation({
-        query: (album: IAlbum) => ({
+        invalidatesTags: (results, error, user) => [
+          { type: "Album", id: user.id },
+        ],
+        query: (user: IUser) => ({
           url: "/albums",
           method: "POST",
           body: {
-            title: album.title,
-            userId: album.userId,
+            title: faker.commerce.productName(),
+            userId: user.id,
           },
         }),
       }),

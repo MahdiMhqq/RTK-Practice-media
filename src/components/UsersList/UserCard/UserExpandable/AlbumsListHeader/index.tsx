@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import Button from "components/Button";
 
 import { IUser } from "store/types";
+import { useAddAlbumMutation } from "store";
 
 interface IAlbumsListHeaderProps {
   user: IUser;
 }
 
 function AlbumsListHeader({ user }: IAlbumsListHeaderProps) {
-  //RUN THUNK HOOK
-  //   const { loading, runThunk } = useThunk(addUser);
+  // ADD ALBUM RTK QUERY
+  const [addAlbum, results] = useAddAlbumMutation();
 
   return (
     <>
@@ -23,8 +24,9 @@ function AlbumsListHeader({ user }: IAlbumsListHeaderProps) {
           className="w-[15ch]"
           onClick={(e) => {
             e.stopPropagation();
-            //   if (!loading) runThunk();
+            if (!results.isLoading) addAlbum(user);
           }}
+          loading={results.isLoading}
         >
           <BsFillPlusSquareFill className="w-4 h-4" />
           <span>Add Album</span>

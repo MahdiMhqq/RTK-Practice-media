@@ -9,6 +9,27 @@
       "id": 3
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "title": "Generic Plastic Mouse",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "title": "Handcrafted Rubber Towels",
+      "userId": 3,
+      "id": 2
+    },
+    {
+      "title": "Luxurious Soft Ball",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "title": "Practical Concrete Pizza",
+      "userId": 2,
+      "id": 4
+    }
+  ],
   "photos": []
 }

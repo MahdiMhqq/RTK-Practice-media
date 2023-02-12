@@ -5,6 +5,7 @@ import Button from "components/Button";
 
 import { IUser } from "store/types";
 import AlbumsListHeader from "./AlbumsListHeader";
+import AlbumsList from "./AlbumsList";
 
 interface IUserExapndableProps {
   expanded: boolean;
@@ -27,6 +28,7 @@ function UserExapndable({
     >
       <AlbumsListHeader user={user} />
       <div className="h-[0.125rem] bg-gradient-to-r from-[#34d39900] via-[#34d399] to-[#34d39900] my-4" />
+      <AlbumsList user={user} />
     </div>
   );
 }
