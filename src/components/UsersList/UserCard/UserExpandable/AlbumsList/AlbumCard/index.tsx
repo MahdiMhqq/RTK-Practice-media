@@ -4,10 +4,8 @@ import { FaChevronDown } from "react-icons/fa";
 
 import CircleSpinner from "components/CircleSpinner";
 
-import useThunk from "hooks/useThunk";
-
 import { IAlbum } from "store/types";
-import { removeUser } from "store";
+import { useDeleteAlbumMutation } from "store";
 import AlbumExpandable from "./AlbumExpandable";
 
 interface IUserCardProps {
@@ -18,6 +16,9 @@ interface IUserCardProps {
 function UserCard({ album, loading = false }: IUserCardProps) {
   //STATES
   const [expanded, setExpanded] = useState(false);
+
+  //RTK QUERY
+  const [deleteAlbum, { isLoading }] = useDeleteAlbumMutation();
 
   return (
     <div
@@ -34,18 +35,18 @@ function UserCard({ album, loading = false }: IUserCardProps) {
       >
         <span
           className={`flex items-center justify-center h-6 w-6 ${
-            // deleteLoading ? "cursor-not-allowed" : "cursor-pointer"
-          ""}`}
+            isLoading ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
           onClick={(e) => {
             e.stopPropagation();
-            // !deleteLoading && handleDeleteUser();
+            !isLoading && album && deleteAlbum(album);
           }}
         >
-          {/* {deleteLoading ? (
+          {isLoading ? (
             <CircleSpinner innerSpinnerClass="border-t-red-500" />
           ) : (
             <BsXCircleFill className="h-5 w-5 fill-red-500 hover:fill-red-700 tranisiton" />
-          )} */}
+          )}
         </span>
         <span className="text-zinc-600 font-bold select-none">
           {album?.title ?? " "}
@@ -56,7 +57,7 @@ function UserCard({ album, loading = false }: IUserCardProps) {
           }`}
         />
       </div>
-      {/* {album && <AlbumExpandable expanded={expanded} album={album} />} */}
+      {album && <AlbumExpandable expanded={expanded} album={album} />}
     </div>
   );
 }

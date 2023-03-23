@@ -14,3 +14,10 @@ export interface IAlbum {
   userId: string;
   id: string;
 }
+
+export interface IPhoto {
+  alt: string;
+  src: string;
+  albumId: string;
+  id: string;
+}

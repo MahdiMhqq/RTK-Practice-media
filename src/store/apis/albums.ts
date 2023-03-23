@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { url } from "inspector";
 import { IAlbum, IUser } from "store/types";
 import { faker } from "@faker-js/faker";
 
@@ -22,6 +21,12 @@ const albumsApiSlice = createApi({
         }),
       }),
       deleteAlbum: builder.mutation({
+        invalidatesTags: (results, error, album) => [
+          {
+            type: "Album",
+            id: album.userId,
+          },
+        ],
         query: (album: IAlbum) => ({
           url: `albums/${album.id}`,
           method: "DELETE",

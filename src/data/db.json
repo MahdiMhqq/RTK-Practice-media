@@ -5,31 +5,111 @@
       "id": 2
     },
     {
-      "name": "Tonya Koepp",
+      "name": "Edgar Gulgowski",
       "id": 3
     }
   ],
   "albums": [
     {
-      "title": "Generic Plastic Mouse",
+      "title": "Luxurious Granite Gloves",
       "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "Luxurious Steel Sausages",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "title": "Electronic Soft Chair",
+      "userId": 2,
+      "id": 7
+    },
+    {
+      "title": "Elegant Frozen Soap",
+      "userId": 3,
+      "id": 8
+    },
+    {
+      "title": "Recycled Plastic Sausages",
+      "userId": 3,
+      "id": 9
+    },
+    {
+      "title": "Generic Cotton Soap",
+      "userId": 3,
+      "id": 10
+    },
+    {
+      "title": "Refined Metal Chair",
+      "userId": 3,
+      "id": 11
+    },
+    {
+      "title": "Recycled Fresh Salad",
+      "userId": 3,
+      "id": 12
+    },
+    {
+      "title": "Electronic Concrete Towels",
+      "userId": 3,
+      "id": 13
+    }
+  ],
+  "photos": [
+    {
+      "alt": "Wool sower gall maker",
+      "src": "https://loremflickr.com/400/400?lock=30636",
+      "albumId": 5,
       "id": 1
     },
     {
-      "title": "Handcrafted Rubber Towels",
-      "userId": 3,
+      "alt": "Leafcutting bee",
+      "src": "https://loremflickr.com/400/400?lock=46117",
+      "albumId": 7,
       "id": 2
     },
     {
-      "title": "Luxurious Soft Ball",
-      "userId": 2,
+      "alt": "Southeastern blueberry bee",
+      "src": "https://loremflickr.com/400/400?lock=22058",
+      "albumId": 7,
       "id": 3
     },
     {
-      "title": "Practical Concrete Pizza",
-      "userId": 2,
+      "alt": "Rough harvester ant",
+      "src": "https://loremflickr.com/400/400?lock=16891",
+      "albumId": 7,
       "id": 4
+    },
+    {
+      "alt": "White-horned horntail",
+      "src": "https://loremflickr.com/400/400?lock=69387",
+      "albumId": 7,
+      "id": 5
+    },
+    {
+      "alt": "Tiphiid wasp",
+      "src": "https://loremflickr.com/400/400?lock=1234",
+      "albumId": 7,
+      "id": 6
+    },
+    {
+      "alt": "Red wasp",
+      "src": "https://loremflickr.com/400/400?lock=57708",
+      "albumId": 7,
+      "id": 7
+    },
+    {
+      "alt": "German yellowjacket",
+      "src": "https://loremflickr.com/400/400?lock=16216",
+      "albumId": 5,
+      "id": 8
+    },
+    {
+      "alt": "Black and yellow mud dauber",
+      "src": "https://loremflickr.com/400/400?lock=1199",
+      "albumId": 5,
+      "id": 9
     }
-  ],
-  "photos": []
+  ]
 }

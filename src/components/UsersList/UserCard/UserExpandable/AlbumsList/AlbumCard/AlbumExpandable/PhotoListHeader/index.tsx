@@ -3,16 +3,16 @@ import { BsFillPlusSquareFill } from "react-icons/bs";
 
 import Button from "components/Button";
 
-import { IUser } from "store/types";
-import { useAddAlbumMutation } from "store";
+import { IAlbum } from "store/types";
+import { useAddPhotoMutation } from "store";
 
 interface IAlbumsListHeaderProps {
-  user: IUser;
+  album: IAlbum;
 }
 
-function AlbumsListHeader({ user }: IAlbumsListHeaderProps) {
+function AlbumsListHeader({ album }: IAlbumsListHeaderProps) {
   // ADD ALBUM RTK QUERY
-  const [addAlbum, results] = useAddAlbumMutation();
+  const [addPhoto, results] = useAddPhotoMutation();
 
   return (
     <>
@@ -20,18 +20,18 @@ function AlbumsListHeader({ user }: IAlbumsListHeaderProps) {
         className={`flex flex-col gap-y-2 md:flex-row md:items-center md:justify-between `}
       >
         <h2 className="text-xl font-bold italic text-emerald-500 select-none">
-          {user.name?.toUpperCase()} Albums
+          {album.title?.toUpperCase()} Photos
         </h2>
         <Button
           className="w-full md:w-[15ch]"
           onClick={(e) => {
             e.stopPropagation();
-            if (!results.isLoading) addAlbum(user);
+            if (!results.isLoading) addPhoto(album);
           }}
           loading={results.isLoading}
         >
           <BsFillPlusSquareFill className="w-4 h-4" />
-          <span>Add Album</span>
+          <span>Add Photo</span>
         </Button>
       </div>
     </>

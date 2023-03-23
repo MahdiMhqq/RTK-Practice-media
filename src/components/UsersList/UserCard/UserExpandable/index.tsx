@@ -22,7 +22,7 @@ function UserExapndable({
     <div
       className={`px-4 py-2 rounded-lg border border-gray-200 transition-all duration-300 ${customClass} ${
         expanded
-          ? "max-h-screen visible opacity-100 mt-2"
+          ? "max-h-screen visible opacity-100 mt-2 overflow-y-scroll overflow-x-hidden"
           : "max-h-0 invisible !px-0 !py-0 opacity-0 mt-0"
       }`}
     >
