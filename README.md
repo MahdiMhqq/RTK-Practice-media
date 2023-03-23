@@ -29,3 +29,5 @@ You can improve it by adding style and other things! and for use this project yo
 - faker
 
 ### Snapshot:
+
+![media_screenshot](https://user-images.githubusercontent.com/90528664/227149354-753afd80-80ca-41a0-8b5e-9d7f4838475d.jpeg)
